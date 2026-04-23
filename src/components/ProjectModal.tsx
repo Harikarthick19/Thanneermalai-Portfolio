@@ -1,89 +1,60 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
-interface Project {
-  title: string;
-  category: string;
-  number: string;
-  description: string;
-  tech: string[];
-}
-
-interface ProjectModalProps {
-  project: Project | null;
-  onClose: () => void;
-}
-
-export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-  if (!project) return null;
-
+export default function ProjectModal({ project, onClose }) {
   return (
-    <AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+    >
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-ink/90 backdrop-blur-md"
-        onClick={onClose}
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        onClick={(e) => e.stopPropagation()}
+        className="bg-cream border-1.5 border-ink max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
       >
-        <motion.div
-          initial={{ scale: 0.98, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.98, opacity: 0 }}
-          className="bg-cream w-full max-w-5xl border-1.5 border-ink overflow-auto max-h-[90vh] relative shadow-[20px_20px_0px_#FF4D1C] flex flex-col"
-          onClick={(e) => e.stopPropagation()}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 z-10 p-2 hover:bg-ink hover:text-cream transition-colors"
         >
-          {/* Close Button Top Right */}
-          <button 
-            onClick={onClose}
-            className="absolute top-6 right-6 p-2 border-1.5 border-ink bg-cream hover:bg-ink hover:text-cream transition-all z-50"
-          >
-            <X size={20} />
-          </button>
+          <X size={24} />
+        </button>
 
-          <div className="flex flex-col md:grid md:grid-cols-2 divide-x-1.5 divide-ink min-h-[500px] overflow-hidden">
-            {/* Left Side (50%) */}
-            <div className="p-8 md:p-12 flex flex-col justify-center bg-zinc-50/20 overflow-hidden">
-               <span className="font-syne text-5xl md:text-7xl opacity-10 mb-6 block pointer-events-none">
-                 {project.number}
-               </span>
-               <div className="flex flex-wrap gap-2 mb-6">
-                  {project.category.split(',').map(tag => (
-                    <span key={tag} className="bg-accent text-cream text-[9px] font-black uppercase tracking-widest px-2 py-1">
-                      {tag.trim()}
-                    </span>
-                  ))}
-               </div>
-               <h2 className="font-syne text-2xl md:text-[2.5rem] font-extrabold uppercase leading-tight tracking-tighter text-ink break-words overflow-hidden max-w-full">
-                 {project.title}
-               </h2>
+        <div className="p-8 md:p-12">
+          <h2 className="font-syne text-4xl font-extrabold uppercase mb-4 tracking-tighter">
+            {project.title}
+          </h2>
+          <p className="text-lg text-ink/70 mb-8">{project.fullDescription}</p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-bold uppercase text-sm tracking-widest mb-4">Technologies Used</h3>
+              <div className="flex flex-wrap gap-3">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="px-4 py-2 bg-ink text-cream font-black text-xs uppercase tracking-[0.1em]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-            
-            {/* Right Side (50%) */}
-            <div className="p-8 md:p-12 flex flex-col justify-center bg-white/20 overflow-hidden">
-              <div className="mb-10">
-                <h3 className="font-black uppercase tracking-[0.3em] text-[10px] mb-4 text-ink opacity-30 border-b border-ink/10 pb-2">Analysis & Overview</h3>
-                <p className="text-base md:text-lg leading-relaxed text-ink/80 font-medium">
-                  {project.description}
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="font-black uppercase tracking-[0.3em] text-[10px] mb-4 text-ink opacity-30 border-b border-ink/10 pb-2">Technology Stack</h3>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {project.tech.map(t => (
-                    <span key={t} className="px-3 py-1 border-1.5 border-ink text-[10px] font-black uppercase tracking-widest bg-white shadow-[3px_3px_0px_#0a0a0a]">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
+
+            <div className="pt-8 border-t-1.5 border-ink">
+              <a
+                href="#contact"
+                className="inline-block bg-accent text-cream px-8 py-4 font-black uppercase tracking-[0.2em] text-sm hover:bg-ink transition-colors"
+              >
+                Interested? Let&apos;s Talk
+              </a>
             </div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
-    </AnimatePresence>
+    </motion.div>
   );
 }

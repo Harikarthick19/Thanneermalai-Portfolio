@@ -2,6 +2,165 @@
 
 import { motion } from "framer-motion";
 
+export default function Experience() {
+  const experiences = [
+    {
+      role: "UI/UX Designer",
+      company: "Freelance",
+      period: "2024 - Present",
+      description: "Designing beautiful and functional user interfaces for web applications.",
+    },
+    {
+      role: "Frontend Developer",
+      company: "Portfolio Projects",
+      period: "2023 - Present",
+      description: "Building responsive web applications with React and Next.js.",
+    },
+  ];
+
+  return (
+    <section id="experience" className="border-b-1.5 border-ink bg-cream">
+      <div className="max-w-7xl mx-auto border-x-1.5 border-ink p-8 md:p-20">
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="font-syne text-5xl font-extrabold uppercase mb-16 tracking-tighter">
+            Experience
+          </h2>
+
+          <div className="space-y-8">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={idx}
+                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                viewport={{ once: true }}
+                className="border-l-4 border-accent pl-8 py-4"
+              >
+                <h3 className="font-bold text-2xl uppercase mb-2">{exp.role}</h3>
+                <p className="text-accent font-black uppercase text-xs tracking-widest mb-2">{exp.company}</p>
+                <p className="text-sm text-ink/60 mb-4">{exp.period}</p>
+                <p className="text-lg leading-relaxed">{exp.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+"use client";
+
+import { motion } from "framer-motion";
+
+export default function Experience() {
+  const experiences = [
+    {
+      role: "UI/UX Designer",
+      company: "Freelance",
+      period: "2024 - Present",
+      description: "Designing beautiful and functional user interfaces for web applications.",
+    },
+    {
+      role: "Frontend Developer",
+      company: "Portfolio Projects",
+      period: "2023 - Present",
+      description: "Building responsive web applications with React and Next.js.",
+    },
+  ];
+
+  return (
+    <section id="experience" className="border-b-1.5 border-ink bg-cream">
+      <div className="max-w-7xl mx-auto border-x-1.5 border-ink p-8 md:p-20">
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="font-syne text-5xl font-extrabold uppercase mb-16 tracking-tighter">
+            Experience
+          </h2>
+
+          <div className="space-y-8">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={idx}
+                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                viewport={{ once: true }}
+                className="border-l-4 border-accent pl-8 py-4"
+              >
+                <h3 className="font-bold text-2xl uppercase mb-2">{exp.role}</h3>
+                <p className="text-accent font-black uppercase text-xs tracking-widest mb-2">{exp.company}</p>
+                <p className="text-sm text-ink/60 mb-4">{exp.period}</p>
+                <p className="text-lg leading-relaxed">{exp.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+"use client";
+
+import { motion } from "framer-motion";
+
+export default function Experience() {
+  const experiences = [
+    {
+      role: "UI/UX Designer",
+      company: "Freelance",
+      period: "2024 - Present",
+      description: "Designing beautiful and functional user interfaces for web applications.",
+    },
+    {
+      role: "Frontend Developer",
+      company: "Portfolio Projects",
+      period: "2023 - Present",
+      description: "Building responsive web applications with React and Next.js.",
+    },
+  ];
+
+  return (
+    <section id="experience" className="border-b-1.5 border-ink bg-cream">
+      <div className="max-w-7xl mx-auto border-x-1.5 border-ink p-8 md:p-20">
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="font-syne text-5xl font-extrabold uppercase mb-16 tracking-tighter">
+            Experience
+          </h2>
+
+          <div className="space-y-8">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={idx}
+                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                viewport={{ once: true }}
+                className="border-l-4 border-accent pl-8 py-4"
+              >
+                <h3 className="font-bold text-2xl uppercase mb-2">{exp.role}</h3>
+                <p className="text-accent font-black uppercase text-xs tracking-widest mb-2">{exp.company}</p>
+                <p className="text-sm text-ink/60 mb-4">{exp.period}</p>
+                <p className="text-lg leading-relaxed">{exp.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+"use client";
+
+import { motion } from "framer-motion";
+
 const experiences = [
   {
     date: "Jun – Jul 2025",

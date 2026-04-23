@@ -1,82 +1,42 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Code2, 
-  Palette, 
-  Layout, 
-  Search, 
-  Sparkles, 
-  Wrench 
-} from "lucide-react";
-
-const skillCategories = [
-  {
-    icon: <Code2 size={40} />,
-    title: "Frontend Dev",
-    tags: ["React.js", "Next.js", "JavaScript", "HTML", "CSS"],
-  },
-  {
-    icon: <Palette size={40} />,
-    title: "UI/UX Design",
-    tags: ["Figma", "Interaction Design", "Wireframing", "Prototyping"],
-  },
-  {
-    icon: <Layout size={40} />,
-    title: "Architecture",
-    tags: ["Component Design", "State Management", "Dynamic UI"],
-  },
-  {
-    icon: <Search size={40} />,
-    title: "Testing & QA",
-    tags: ["UI Testing", "Debugging", "Performance Optimization"],
-  },
-  {
-    icon: <Sparkles size={40} />,
-    title: "AI Tools",
-    tags: ["Prompt Engineering", "LLM Integration", "AI-assisted Dev"],
-  },
-  {
-    icon: <Wrench size={40} />,
-    title: "Tools",
-    tags: ["Git", "VS Code", "MongoDB", "AWS"],
-  },
-];
 
 export default function Skills() {
+  const skills = [
+    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
+    { category: "Design", items: ["Figma", "UI/UX Design", "Prototyping", "Wireframing"] },
+    { category: "Languages", items: ["JavaScript", "Python", "Java", "SQL"] },
+    { category: "Tools", items: ["Git", "VS Code", "Chrome DevTools", "Vercel", "Netlify"] },
+  ];
+
   return (
-    <section id="skills" className="border-b-1.5 border-ink bg-ink text-cream">
-      <div className="max-w-7xl mx-auto border-x-1.5 border-cream/20 p-8 md:p-20">
+    <section id="skills" className="border-b-1.5 border-ink bg-cream">
+      <div className="max-w-7xl mx-auto border-x-1.5 border-ink p-8 md:p-20">
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="font-syne text-5xl font-extrabold uppercase mb-16 tracking-tighter">
+            Skills <span className="text-accent underline decoration-4 underline-offset-8">&amp; Tools</span>
+          </h2>
 
-        <h2 className="font-syne text-4xl md:text-6xl font-extrabold uppercase mb-20 tracking-tighter text-center">
-           Expertise <span className="text-accent">&</span> Stack
-        </h2>
-
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {skillCategories.map((cat, idx) => (
-            <motion.div
-              key={cat.title}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 20 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="border-1.5 border-cream/10 p-10 hover:border-accent transition-all duration-500 hover:bg-cream/5 group"
-            >
-              <div className="text-accent mb-8 group-hover:scale-110 transition-transform duration-500">
-                {cat.icon}
+          <div className="grid md:grid-cols-2 gap-8">
+            {skills.map((skillGroup, idx) => (
+              <div key={idx} className="border-1.5 border-ink p-8 bg-white/50">
+                <h3 className="font-bold uppercase text-lg mb-6 tracking-widest text-accent">{skillGroup.category}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {skillGroup.items.map((skill, sidx) => (
+                    <span key={sidx} className="px-4 py-2 bg-ink text-cream font-black text-xs uppercase tracking-[0.1em] rounded">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <h3 className="text-2xl font-bold uppercase tracking-widest mb-8">{cat.title}</h3>
-              <div className="flex flex-wrap gap-3">
-                {cat.tags.map(tag => (
-                  <span key={tag} className="px-4 py-1.5 bg-cream/5 border border-cream/10 text-[10px] font-black uppercase tracking-[0.2em] text-cream/60 group-hover:text-cream group-hover:border-accent/40 transition-colors">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
