@@ -51,8 +51,8 @@ export default function Contact() {
                  <span className="text-green-800 text-[10px] font-black uppercase tracking-[0.2em]">Available for work</span>
               </div>
               <p className="text-2xl font-bold mb-12 leading-relaxed text-ink/80 tracking-tight text-balance">
-                 I'm currently seeking new challenges and collaborative opportunities. 
-                 Let's build something exceptional together.
+                 I{"'"m} currently seeking new challenges and collaborative opportunities. 
+                 Let{"'"s} build something exceptional together.
               </p>
 
               <a 

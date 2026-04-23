@@ -19,7 +19,7 @@ export default function About() {
             <div className="space-y-6 text-lg leading-relaxed text-balance">
               <p>
                 I am a disciplined and driven Computer Science student at <span className="font-bold">SVCE Chennai</span>, 
-                specializing in Artificial Intelligence & Data Science. My journey is fueled by a hunger for practical learning 
+                specializing in Artificial Intelligence {"&"} Data Science. My journey is fueled by a hunger for practical learning 
                 and a commitment to excellence.
               </p>
               <p>

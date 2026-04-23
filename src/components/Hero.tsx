@@ -71,7 +71,7 @@ export default function Hero() {
             <motion.div variants={itemVariants}>
               <p className="text-base md:text-lg max-w-md mb-10 leading-relaxed font-bold text-ink/70">
                 Crafting bold, functional, and detail-oriented digital experiences. 
-                CS student at SVCE specializing in Artificial Intelligence & Data Science.
+                CS student at SVCE specializing in Artificial Intelligence {"&"} Data Science.
               </p>
             </motion.div>
 
