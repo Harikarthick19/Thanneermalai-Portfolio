@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f5f0e8;
+  --foreground: #0a0a0a;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink;
+  }
+}
+
+@layer utilities {
+  .border-ink {
+    border-color: #0a0a0a;
+  }
+  .bg-ink {
+    background-color: #0a0a0a;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f0e8;
+}
+::-webkit-scrollbar-thumb {
+  background: #0a0a0a;
+  border: 2px solid #f5f0e8;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1.5px #0a0a0a;
+}
