@@ -53,7 +53,7 @@ export default function Skills() {
         </h2>
 
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((cat, idx) => (
             <motion.div
               key={cat.title}
@@ -61,15 +61,15 @@ export default function Skills() {
               initial={{ opacity: 0, y: 20 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="border-1.5 border-ink p-8 hover:border-accent transition-all duration-500 hover:bg-white group shadow-[8px_8px_0px_#0a0a0a] hover:shadow-none translate-y-[-4px] hover:translate-y-0"
+              className="border-1.5 border-ink p-10 bg-cream transition-all duration-500 hover:border-accent hover:bg-white group shadow-[12px_12px_0px_#0a0a0a] hover:shadow-none translate-y-[-4px] hover:translate-y-0"
             >
-              <div className="text-accent mb-8 group-hover:scale-110 transition-transform duration-500">
+              <div className="text-accent mb-10 group-hover:scale-110 transition-transform duration-500">
                 {cat.icon}
               </div>
-              <h3 className="font-syne text-xl font-bold uppercase tracking-tight mb-6">{cat.title}</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="font-syne text-2xl font-extrabold uppercase tracking-tight mb-8 leading-tight">{cat.title}</h3>
+              <div className="flex flex-wrap gap-3">
                 {cat.tags.map(tag => (
-                  <span key={tag} className="font-syne px-3 py-1 bg-ink/5 border border-ink/10 text-[9px] font-bold uppercase tracking-widest text-ink/60 group-hover:text-ink group-hover:border-accent/40 transition-colors">
+                  <span key={tag} className="font-syne px-4 py-2 bg-ink/5 border-1.5 border-ink/20 text-[10px] font-bold uppercase tracking-widest text-ink/80 group-hover:text-ink group-hover:border-accent/60 transition-all duration-300">
                     {tag}
                   </span>
                 ))}

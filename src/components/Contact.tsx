@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Link2 } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -20,6 +20,11 @@ export default function Contact() {
               </h2>
 
               <div className="space-y-8 mt-16">
+                 <ContactLink 
+                    icon={<Link2 className="text-accent group-hover:text-ink" />} 
+                    label="LinkedIn Profile" 
+                    href="https://www.linkedin.com/in/thanneermalai-shanmugam-719423321"
+                 />
                  <ContactLink 
                     icon={<Mail className="text-accent group-hover:text-ink" />} 
                     label="thanneermalai1903@gmail.com" 

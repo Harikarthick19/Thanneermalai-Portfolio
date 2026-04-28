@@ -22,7 +22,7 @@ export default function Hero() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   return (
@@ -98,7 +98,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="grid grid-cols-2 gap-px bg-ink border-1.5 border-ink w-full max-w-sm shadow-[30px_30px_0px_#f5f0e8]"
+            className="grid grid-cols-2 gap-px bg-ink border-1.5 border-ink w-full max-w-sm shadow-[30px_30px_0px_#0a0a0a]"
           >
             <StatBox value="3+" label="Projects Completed" />
             <StatBox value="2" label="Internships Done" />

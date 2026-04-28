@@ -50,6 +50,7 @@ export default function About() {
                     <Row label="Education" value="B.Tech Artificial Intelligence and Data Science @ SVCE" />
                     <Row label="Batch" value="2023 – Present" />
                     <Row label="Email" value={<a href="mailto:thanneermalai1903@gmail.com" className="hover:text-accent transition-colors cursor-pointer">thanneermalai1903@gmail.com</a>} />
+                    <Row label="LinkedIn" value={<a href="https://www.linkedin.com/in/thanneermalai-shanmugam-719423321" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors cursor-pointer">Thanneermalai Shanmugam</a>} />
                     <Row label="Phone" value="+91 9994752560" />
                     <Row label="Status" value={<span className="text-green-600 font-bold">Open to Work</span>} isLast />
                  </tbody>

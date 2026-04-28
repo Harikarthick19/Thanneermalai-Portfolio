@@ -49,42 +49,39 @@ export default function Projects() {
             </h2>
         </div>
         
-        {/* Proper 2x2 Grid Layout */}
-        <div className="grid md:grid-cols-2 gap-0 items-stretch">
+        {/* Proper 2x2 Grid Layout with robust lines */}
+        <div className="grid md:grid-cols-2 gap-px bg-ink border-b-1.5 border-ink">
           {projects.map((project, idx) => (
             <div
               key={project.title}
               onClick={() => setSelectedProject(project)}
-              className={`group flex flex-col p-8 md:p-12 bg-cream hover:bg-ink transition-all duration-500 cursor-pointer border-ink
-                ${idx < 2 ? 'border-b-1.5' : ''} 
-                ${idx % 2 === 0 ? 'md:border-r-1.5 border-b-1.5 md:border-b-0' : ''}
-                min-h-[400px] relative overflow-hidden`}
+              className="group flex flex-col p-8 md:p-12 bg-cream hover:bg-ink transition-all duration-500 cursor-pointer min-h-[450px] relative overflow-hidden"
             >
               {/* Top Row: Number & View Icon */}
-              <div className="flex justify-between items-start mb-6 w-full">
-                <span className="text-xs font-black uppercase tracking-widest opacity-30 group-hover:opacity-60 group-hover:text-cream transition-colors duration-500">
+              <div className="flex justify-between items-start mb-8 w-full">
+                <span className="text-xs font-black uppercase tracking-widest opacity-40 group-hover:opacity-70 group-hover:text-cream transition-colors duration-500">
                   {project.number}
                 </span>
-                <div className="p-2 border border-ink/20 group-hover:border-cream/30 group-hover:text-cream transition-all duration-500">
-                  <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform" />
+                <div className="p-2 border-1.5 border-ink/30 group-hover:border-cream/50 group-hover:text-cream transition-all duration-500">
+                  <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform" />
                 </div>
               </div>
               
               {/* Content Area */}
-              <div className="flex flex-col flex-1 max-w-full overflow-hidden">
-                <h3 className="font-syne text-xl md:text-[1.8rem] font-bold uppercase mb-4 leading-tight tracking-tighter group-hover:text-cream transition-colors duration-500 line-clamp-2 max-w-full overflow-hidden">
+              <div className="flex flex-col flex-1">
+                <h3 className="font-syne text-2xl md:text-[2.2rem] font-extrabold uppercase mb-6 leading-tight tracking-tighter group-hover:text-cream transition-colors duration-500">
                   {project.title}
                 </h3>
-                <p className="text-sm md:text-base opacity-60 font-medium group-hover:text-cream border-l-2 border-accent pl-4 group-hover:opacity-80 transition-all duration-500 line-clamp-2 mb-8">
+                <p className="text-sm md:text-lg opacity-70 font-medium group-hover:text-cream/90 border-l-4 border-accent pl-6 mb-12 leading-relaxed transition-all duration-500">
                   {project.description}
                 </p>
                 
                 {/* Fixed Bottom Tags */}
-                <div className="mt-auto flex flex-wrap gap-2 pt-6">
+                <div className="mt-auto flex flex-wrap gap-3">
                   {project.tech.map(tag => (
                     <span 
                       key={tag} 
-                      className="px-3 py-1 border border-ink/20 group-hover:border-white/40 text-[9px] font-black uppercase tracking-widest text-ink group-hover:text-white transition-all"
+                      className="px-4 py-1.5 border-1.5 border-ink/40 text-[10px] font-black uppercase tracking-[0.2em] text-ink group-hover:text-white group-hover:border-white/60 transition-all duration-500"
                     >
                       {tag}
                     </span>

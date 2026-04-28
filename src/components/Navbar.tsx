@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-cream ${
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-cream border-b-1.5 border-ink ${
       scrolled ? "h-16 shadow-lg" : "h-20"
     }`}>
       {/* Align with section borders: max-w-7xl + border-x */}

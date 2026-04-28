@@ -30,7 +30,7 @@ export default function FreelanceServices() {
              Creative <span className="text-accent underline decoration-4 underline-offset-8">Solutions</span>
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-0 border-ink">
+        <div className="grid md:grid-cols-2 gap-px bg-ink">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
@@ -38,9 +38,7 @@ export default function FreelanceServices() {
               initial={{ opacity: 0, y: 20 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className={`p-10 md:p-14 hover:bg-accent group transition-all duration-500 cursor-default border-ink
-                ${idx < 2 ? 'border-b-1.5' : ''}
-                ${idx % 2 === 0 ? 'md:border-r-1.5 border-b-1.5 md:border-b-0' : ''}`}
+              className="bg-cream p-10 md:p-14 hover:bg-accent group transition-all duration-500 cursor-default"
             >
               <h3 className="font-syne text-2xl md:text-4xl font-extrabold uppercase mb-6 group-hover:text-ink leading-tight tracking-tighter">
                 {service.title}
