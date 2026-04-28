@@ -28,7 +28,10 @@ export default function Hero() {
   return (
     <section className="min-h-screen pt-20 flex flex-col border-b-1.5 border-ink bg-cream overflow-hidden">
       <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col md:grid md:grid-cols-2 border-x-1.5 border-ink">
+        {/* Left Column - Name & CTA */}
         <div className="p-8 md:p-16 flex flex-col justify-center border-r-1.5 border-ink bg-white/50 relative overflow-hidden">
+          
+          {/* Background Photo - Fully covered, slightly blurred, visible */}
           <div 
             onClick={() => setImageClicked(!imageClicked)}
             className={`absolute inset-0 z-0 pointer-events-auto mix-blend-multiply cursor-pointer transition-all duration-300 ${
@@ -43,6 +46,8 @@ export default function Hero() {
               priority
             />
           </div>
+
+
 
           <motion.div
             variants={containerVariants}
@@ -65,7 +70,8 @@ export default function Hero() {
 
             <motion.div variants={itemVariants}>
               <p className="text-base md:text-lg max-w-md mb-10 leading-relaxed font-bold text-ink/70">
-                Crafting bold, functional, and detail-oriented digital experiences. CS student at SVCE specializing in Artificial Intelligence &amp; Data Science.
+                Crafting bold, functional, and detail-oriented digital experiences. 
+                CS student at SVCE specializing in Artificial Intelligence & Data Science.
               </p>
             </motion.div>
 
@@ -80,38 +86,46 @@ export default function Hero() {
                 href="#contact"
                 className="group relative bg-white text-ink px-10 py-5 uppercase font-black tracking-[0.2em] text-xs border-1.5 border-ink overflow-hidden transition-all duration-300 shadow-[6px_6px_0px_#0a0a0a] hover:shadow-none translate-y-[-4px] hover:translate-y-0"
               >
-                Let&apos;s Talk
+                Let's Talk
               </Link>
             </motion.div>
           </motion.div>
         </div>
 
+        {/* Right Column - Stats */}
         <div className="bg-accent overflow-hidden flex flex-col justify-center items-center relative p-8 md:p-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-center"
+            className="grid grid-cols-2 gap-px bg-ink border-1.5 border-ink w-full max-w-sm shadow-[30px_30px_0px_#f5f0e8]"
           >
-            <div className="inline-flex items-center gap-3 px-8 py-3 bg-green-50 border-1.5 border-green-600 rounded-full mb-8">
-              <span className="w-3 h-3 bg-green-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(22,163,74,0.5)]" />
-              <span className="text-green-800 text-[10px] font-black uppercase tracking-[0.2em]">Available for work</span>
-            </div>
-            <h2 className="font-syne text-2xl md:text-3xl font-extrabold uppercase mb-6 leading-tight text-ink tracking-tight">
-              Let&apos;s create something <br /> amazing together
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed text-ink/80 mb-8 max-w-xs">
-              I&apos;m excited to collaborate on innovative projects. Let&apos;s talk about your next big idea.
-            </p>
-            <a 
-              href="#contact"
-              className="inline-flex items-center gap-2 text-ink font-black uppercase tracking-[0.2em] text-xs hover:gap-4 transition-all duration-300 border-b-1.5 border-ink pb-2"
-            >
-              Get in touch <ArrowDown size={14} />
-            </a>
+            <StatBox value="3+" label="Projects Completed" />
+            <StatBox value="2" label="Internships Done" />
+            <StatBox value="2" label="Certifications" />
+            <StatBox value="7.1" label="Total CGPA" />
           </motion.div>
+
+          <div
+            className="absolute bottom-10 flex flex-col items-center gap-3 cursor-pointer group"
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white">Scroll Down</span>
+            <div className="p-3 border-1.5 border-white rounded-full group-hover:bg-white group-hover:text-accent transition-all">
+              <ArrowDown size={20} className="text-white group-hover:text-accent" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function StatBox({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-white p-8 aspect-square flex flex-col items-center justify-center text-center group transition-all duration-500 hover:bg-ink hover:text-white">
+      <span className="font-syne text-4xl font-extrabold text-accent group-hover:text-white group-hover:scale-110 transition-all duration-500">{value}</span>
+      <span className="text-[10px] font-black uppercase tracking-widest mt-4 opacity-50 group-hover:opacity-100">{label}</span>
+    </div>
   );
 }
