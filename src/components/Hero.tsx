@@ -54,7 +54,7 @@ export default function Hero() {
             className="w-full max-w-full overflow-hidden relative z-20"
           >
             <motion.div variants={itemVariants} className="overflow-hidden max-w-full">
-              <h1 className="font-syne text-[clamp(1.8rem,7vw,3.2rem)] leading-[0.85] font-black uppercase tracking-tighter mb-8 text-ink">
+              <h1 className="font-syne text-[clamp(1.5rem,6vw,2.5rem)] leading-[0.9] font-black uppercase tracking-tight mb-8 text-ink">
                 THANNEER<br />
                 MALAI <span className="text-accent">S.</span>
               </h1>
