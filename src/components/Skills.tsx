@@ -49,7 +49,7 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto border-x-1.5 border-ink p-8 md:p-20">
 
         <h2 className="font-syne text-4xl md:text-6xl font-extrabold uppercase mb-20 tracking-tighter text-center">
-           Expertise <span className="text-accent">&</span> Stack
+           Expertise & Stack
         </h2>
 
         

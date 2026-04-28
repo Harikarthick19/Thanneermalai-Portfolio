@@ -53,7 +53,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-full overflow-hidden relative z-10"
+            className="w-full max-w-full overflow-hidden relative z-20"
           >
             <motion.div variants={itemVariants} className="overflow-hidden max-w-full">
               <h1 className="font-syne text-[clamp(1.8rem,5vw,3.2rem)] leading-[1.1] font-extrabold uppercase tracking-tighter mb-8 text-ink">
@@ -123,9 +123,9 @@ export default function Hero() {
 
 function StatBox({ value, label }: { value: string; label: string }) {
   return (
-    <div className="bg-white p-8 aspect-square flex flex-col items-center justify-center text-center group transition-all duration-500 hover:bg-ink hover:text-white">
-      <span className="font-syne text-4xl font-extrabold text-accent group-hover:text-white group-hover:scale-110 transition-all duration-500">{value}</span>
-      <span className="text-[10px] font-black uppercase tracking-widest mt-4 opacity-50 group-hover:opacity-100">{label}</span>
+    <div className="bg-white p-6 md:p-8 aspect-square flex flex-col items-center justify-center text-center group transition-all duration-500 hover:bg-ink hover:text-white">
+      <span className="font-syne text-3xl md:text-4xl font-extrabold text-accent group-hover:text-white group-hover:scale-110 transition-all duration-500">{value}</span>
+      <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest mt-3 md:mt-4 opacity-50 group-hover:opacity-100">{label}</span>
     </div>
   );
 }
