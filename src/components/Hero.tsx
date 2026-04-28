@@ -98,12 +98,12 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="grid grid-cols-2 gap-px bg-ink border-1.5 border-ink w-full max-w-sm shadow-[30px_30px_0px_#0a0a0a]"
+            className="grid grid-cols-2 gap-px bg-ink border-1.5 border-ink w-full max-w-sm shadow-[20px_20px_0px_#0a0a0a]"
           >
-            <StatBox value="3+" label="Projects Completed" />
-            <StatBox value="2" label="Internships Done" />
-            <StatBox value="2" label="Certifications" />
-            <StatBox value="7.1" label="Total CGPA" />
+            <StatBox value="3+" label="Projects" />
+            <StatBox value="2" label="Interns" />
+            <StatBox value="2" label="Certs" />
+            <StatBox value="7.1" label="CGPA" />
           </motion.div>
 
           <div
@@ -123,9 +123,9 @@ export default function Hero() {
 
 function StatBox({ value, label }: { value: string; label: string }) {
   return (
-    <div className="bg-white p-6 md:p-8 aspect-square flex flex-col items-center justify-center text-center group transition-all duration-500 hover:bg-ink hover:text-white">
-      <span className="font-syne text-3xl md:text-4xl font-extrabold text-accent group-hover:text-white group-hover:scale-110 transition-all duration-500">{value}</span>
-      <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest mt-3 md:mt-4 opacity-50 group-hover:opacity-100">{label}</span>
+    <div className="bg-cream p-4 md:p-6 aspect-square flex flex-col items-center justify-center text-center group transition-all duration-500 hover:bg-ink hover:text-white">
+      <span className="font-syne text-2xl md:text-3xl font-extrabold text-accent group-hover:text-white group-hover:scale-110 transition-all duration-500">{value}</span>
+      <span className="text-[8px] md:text-[9px] font-black uppercase tracking-widest mt-2 md:mt-3 opacity-50 group-hover:opacity-100">{label}</span>
     </div>
   );
 }

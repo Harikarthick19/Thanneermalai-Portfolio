@@ -14,7 +14,7 @@ export default function About() {
              viewport={{ once: true }}
           >
             <h2 className="font-syne text-4xl md:text-5xl font-extrabold uppercase mb-8 tracking-tighter">
-              Hello! I&apos;m <span className="text-accent">Thanneermalai</span>
+              Hello! I am <span className="text-accent">Thanneermalai</span>
             </h2>
             <div className="space-y-6 text-base md:text-lg text-ink/70 font-medium leading-relaxed">
               <p>

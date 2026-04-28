@@ -61,7 +61,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 20 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="border-1.5 border-ink p-8 bg-cream transition-all duration-500 hover:border-accent hover:bg-white group shadow-[12px_12px_0px_#0a0a0a] hover:shadow-none translate-y-[-4px] hover:translate-y-0"
+              className="border-1.5 border-ink p-6 bg-cream transition-all duration-500 hover:border-accent hover:bg-white group shadow-[8px_8px_0px_#0a0a0a] hover:shadow-none translate-y-[-2px] hover:translate-y-0"
             >
               <div className="text-accent mb-6 group-hover:scale-110 transition-transform duration-500">
                 {cat.icon}
