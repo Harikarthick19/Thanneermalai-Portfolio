@@ -48,8 +48,8 @@ export default function Projects() {
             </h2>
         </div>
         
-        {/* Proper 2x2 Grid Layout with robust lines */}
-        <div className="grid md:grid-cols-2 gap-px bg-ink border-b-1.5 border-ink">
+        {/* Proper Responsive Grid Layout with robust lines */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink border-b-1.5 border-ink">
           {projects.map((project) => (
             <div
               key={project.title}

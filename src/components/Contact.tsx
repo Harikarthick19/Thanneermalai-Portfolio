@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section id="contact" className="border-b-1.5 border-ink bg-cream">
       <div className="max-w-7xl mx-auto border-x-1.5 border-ink">
-        <div className="grid md:grid-cols-2 divide-x-1.5 border-ink">
+        <div className="grid grid-cols-1 md:grid-cols-2 divide-y-1.5 md:divide-y-0 md:divide-x-1.5 border-ink">
           <div className="p-8 md:p-20">
             <motion.div
               whileInView={{ opacity: 1, x: 0 }}

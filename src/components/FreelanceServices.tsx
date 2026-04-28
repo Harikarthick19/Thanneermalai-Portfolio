@@ -30,7 +30,7 @@ export default function FreelanceServices() {
              Creative <span className="text-accent underline decoration-4 underline-offset-8">Solutions</span>
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-px bg-ink">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
