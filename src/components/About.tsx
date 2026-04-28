@@ -13,7 +13,7 @@ export default function About() {
              initial={{ opacity: 0, y: 20 }}
              viewport={{ once: true }}
           >
-            <h2 className="font-syne text-4xl md:text-5xl font-extrabold uppercase mb-8 tracking-tighter">
+            <h2 className="font-syne text-2xl md:text-3xl font-extrabold uppercase mb-6 tracking-tighter leading-tight">
               Hello! I am <span className="text-accent">Thanneermalai</span>
             </h2>
             <div className="space-y-6 text-base md:text-lg text-ink/70 font-medium leading-relaxed">
