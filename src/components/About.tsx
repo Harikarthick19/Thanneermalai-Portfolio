@@ -13,10 +13,16 @@ export default function About() {
              initial={{ opacity: 0, y: 20 }}
              viewport={{ once: true }}
           >
-            <h2 className="font-syne text-5xl font-extrabold uppercase mb-12 tracking-tighter">
-              About <span className="text-accent underline decoration-4 underline-offset-8">Me</span>
+            <h2 className="font-syne text-4xl md:text-5xl font-extrabold uppercase mb-8 tracking-tighter text-balance">
+              Hello! I&apos;m <span className="text-accent underline decoration-4 underline-offset-8">Thanneermalai</span>.
             </h2>
-            <div className="space-y-6 text-lg leading-relaxed text-balance">
+            <div className="space-y-6 text-base md:text-lg text-ink/70 font-medium leading-relaxed">
+              <p>
+                 I&apos;m a FrontEnd Developer & UI/UX Designer based in Chennai, India. 
+                 With a deep passion for clean aesthetics and functional design, 
+                 I specialize in building high-performance web applications that provide 
+                 seamless user experiences.
+              </p>
               <p>
                 I am a disciplined and driven Computer Science student at <span className="font-bold">SVCE Chennai</span>, 
                 specializing in Artificial Intelligence & Data Science. My journey is fueled by a hunger for practical learning 
@@ -24,12 +30,12 @@ export default function About() {
               </p>
               <p>
                 As a FrontEnd Developer with a keen eye for design, I bridge the gap between 
-                technical complexity and user-centric aesthetics. I don't just write code; 
+                technical complexity and user-centric aesthetics. I don&apos;t just write code; 
                 I design experiences that leave a lasting impact.
               </p>
               <p>
                 Detail-oriented by nature, I thrive in environments that challenge my problem-solving 
-                skills. Whether it's optimizing a React component or wireframing a complex 
+                skills. Whether it&apos;s optimizing a React component or wireframing a complex 
                 user flow in Figma, I bring 100% to the table.
               </p>
             </div>

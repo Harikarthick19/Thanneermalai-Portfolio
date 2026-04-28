@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 
@@ -51,7 +50,7 @@ export default function Projects() {
         
         {/* Proper 2x2 Grid Layout with robust lines */}
         <div className="grid md:grid-cols-2 gap-px bg-ink border-b-1.5 border-ink">
-          {projects.map((project, idx) => (
+          {projects.map((project) => (
             <div
               key={project.title}
               onClick={() => setSelectedProject(project)}

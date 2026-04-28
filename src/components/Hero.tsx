@@ -86,7 +86,7 @@ export default function Hero() {
                 href="#contact"
                 className="group relative bg-white text-ink px-10 py-5 uppercase font-black tracking-[0.2em] text-xs border-1.5 border-ink overflow-hidden transition-all duration-300 shadow-[6px_6px_0px_#0a0a0a] hover:shadow-none translate-y-[-4px] hover:translate-y-0"
               >
-                Let's Talk
+                Let&apos;s Talk
               </Link>
             </motion.div>
           </motion.div>

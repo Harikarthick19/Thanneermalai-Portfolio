@@ -16,7 +16,7 @@ export default function Contact() {
             >
               <h2 className="font-syne text-4xl md:text-6xl font-extrabold uppercase mb-12 leading-[0.9] tracking-tighter text-balance">
                 Got a project <br /> in mind? <br />
-                <span className="text-accent underline decoration-4 underline-offset-8">Let's talk.</span>
+                <span className="text-accent underline decoration-4 underline-offset-8">Let&apos;s talk.</span>
               </h2>
 
               <div className="space-y-8 mt-16">
@@ -56,8 +56,8 @@ export default function Contact() {
                  <span className="text-green-800 text-[10px] font-black uppercase tracking-[0.2em]">Available for work</span>
               </div>
               <p className="text-2xl font-bold mb-12 leading-relaxed text-ink/80 tracking-tight text-balance">
-                 I'm currently seeking new challenges and collaborative opportunities. 
-                 Let's build something exceptional together.
+                 I&apos;m currently seeking new challenges and collaborative opportunities. 
+                 Let&apos;s build something exceptional together.
               </p>
 
               <a 

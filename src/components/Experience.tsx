@@ -28,7 +28,7 @@ export default function Experience() {
         </div>
 
         <div>
-          {experiences.map((exp, idx) => (
+          {experiences.map((exp) => (
             <div key={exp.company} className="grid md:grid-cols-4 border-b-1.5 border-ink last:border-b-0 group hover:bg-white transition-colors duration-500">
                <div className="p-8 md:p-12 border-b-1.5 md:border-b-0 md:border-r-1.5 border-ink flex items-center md:justify-center group-hover:bg-accent group-hover:text-ink transition-all duration-700">
                   <span className="font-black uppercase tracking-[0.3em] text-xs underline underline-offset-8 decoration-2 decoration-accent group-hover:decoration-ink">
