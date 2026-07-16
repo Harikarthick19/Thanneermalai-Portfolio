@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 export default function CustomCursor() {
   const [mounted, setMounted] = useState(false);
@@ -9,13 +9,8 @@ export default function CustomCursor() {
   const [clicked, setClicked] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  // Raw cursor position (no lag)
-  const mouseX = useMotionValue(-200);
-  const mouseY = useMotionValue(-200);
-
-  // Smooth lagging ball
-  const ballX = useSpring(mouseX, { stiffness: 120, damping: 22, mass: 0.8 });
-  const ballY = useSpring(mouseY, { stiffness: 120, damping: 22, mass: 0.8 });
+  const mouseX = useMotionValue(-300);
+  const mouseY = useMotionValue(-300);
 
   useEffect(() => {
     setMounted(true);
@@ -64,53 +59,46 @@ export default function CustomCursor() {
 
   return (
     <div className="hidden lg:block">
-      {/* === Large trailing ball (nukepc style) === */}
       <motion.div
-        className="fixed pointer-events-none z-[9998]"
-        style={{
-          translateX: ballX,
-          translateY: ballY,
-          borderRadius: "50%",
-          border: "2px solid rgba(255,77,28,0.6)",
-          top: 0,
-          left: 0,
-        }}
+        className="fixed top-0 left-0 pointer-events-none z-[9999]"
+        style={{ translateX: mouseX, translateY: mouseY }}
         animate={{
-          width: clicked ? 28 : hovered ? 60 : 40,
-          height: clicked ? 28 : hovered ? 60 : 40,
-          marginLeft: clicked ? -14 : hovered ? -30 : -20,
-          marginTop: clicked ? -14 : hovered ? -30 : -20,
-          background: hovered ? "rgba(255, 77, 28, 0.15)" : "transparent",
-          borderColor: hovered ? "#FF4D1C" : "rgba(255,77,28,0.6)",
-          boxShadow: hovered
-            ? "0 0 24px 6px rgba(255,77,28,0.45), 0 0 6px 1px rgba(255,77,28,0.6)"
-            : "0 0 12px 3px rgba(255,77,28,0.25)",
           opacity: visible ? 1 : 0,
+          scale: clicked ? 0.85 : 1,
         }}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      />
-
-      {/* === Small instant dot === */}
-      <motion.div
-        className="fixed pointer-events-none z-[9999] rounded-full"
-        style={{
-          translateX: mouseX,
-          translateY: mouseY,
-          width: 6,
-          height: 6,
-          marginLeft: -3,
-          marginTop: -3,
-          background: "#FF4D1C",
-          boxShadow: "0 0 8px 3px rgba(255,77,28,0.8)",
-          top: 0,
-          left: 0,
-        }}
-        animate={{
-          scale: hovered ? 0 : clicked ? 2 : 1,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{ duration: 0.15 }}
-      />
+        transition={{ scale: { type: "spring", stiffness: 500, damping: 25 } }}
+      >
+        {/* Gaming Arrow Cursor SVG */}
+        <svg
+          width="28"
+          height="36"
+          viewBox="0 0 28 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{
+            filter: hovered
+              ? "drop-shadow(0 0 6px #FF4D1C) drop-shadow(0 0 12px rgba(255,77,28,0.5))"
+              : "drop-shadow(0 0 3px rgba(255,77,28,0.4)) drop-shadow(1px 1px 0px #0a0a0a)",
+            transition: "filter 0.2s ease",
+          }}
+        >
+          {/* Main arrow fill */}
+          <path
+            d="M2 2L2 28L9 21L14 34L18 32.5L13 19.5L23 19.5L2 2Z"
+            fill={hovered ? "#FF4D1C" : "#0a0a0a"}
+            style={{ transition: "fill 0.2s ease" }}
+          />
+          {/* Arrow outline / gaming edge */}
+          <path
+            d="M2 2L2 28L9 21L14 34L18 32.5L13 19.5L23 19.5L2 2Z"
+            stroke="#FF4D1C"
+            strokeWidth={hovered ? "2" : "1.5"}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            style={{ transition: "stroke-width 0.2s ease" }}
+          />
+        </svg>
+      </motion.div>
     </div>
   );
 }
