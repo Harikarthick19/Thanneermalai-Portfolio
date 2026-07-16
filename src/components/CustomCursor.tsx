@@ -12,7 +12,8 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 250, mass: 0.5 };
+  // Smooth trailing spring settings
+  const springConfig = { damping: 30, stiffness: 220, mass: 0.6 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -74,43 +75,32 @@ export default function CustomCursor() {
     <>
       {isVisible && (
         <div className="hidden lg:block">
-          {/* Outer Gaming Reticle / Crosshair */}
+          {/* Gaming HUD Crosshair Trailing Ring */}
           <motion.div
             style={{
               translateX: cursorXSpring,
               translateY: cursorYSpring,
             }}
-            className="fixed top-0 left-0 w-8 h-8 -ml-4 -mt-4 pointer-events-none z-[9999] flex items-center justify-center"
+            className="fixed top-0 left-0 w-7 h-7 -ml-3.5 -mt-3.5 pointer-events-none z-[9999] flex items-center justify-center"
             animate={{
-              scale: clicked ? 0.8 : hovered ? 1.4 : 1,
-              rotate: hovered ? 135 : 0,
+              scale: clicked ? 0.75 : hovered ? 1.5 : 1,
+              rotate: hovered ? 90 : 0,
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            transition={{ type: "spring", stiffness: 350, damping: 22 }}
           >
-            {/* The outer ring */}
-            <div className={`w-full h-full rounded-full border-1.5 relative transition-colors duration-300 ${
-              hovered ? "border-accent bg-accent/10 shadow-[0_0_12px_rgba(255,77,28,0.5)]" : "border-ink"
+            {/* The outer ring with glowing gaming HUD theme */}
+            <div className={`w-full h-full rounded-full border-1.5 relative transition-all duration-300 ${
+              hovered 
+                ? "border-accent bg-accent/5 shadow-[0_0_12px_rgba(255,77,28,0.6)]" 
+                : "border-accent/60 bg-transparent shadow-[0_0_6px_rgba(255,77,28,0.2)]"
             }`}>
               {/* Tactical Crosshair Tick Marks */}
-              <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1.5 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-ink"}`} />
-              <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0.5 h-1.5 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-ink"}`} />
-              <span className={`absolute left-0 top-1/2 -translate-y-1/2 h-0.5 w-1.5 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-ink"}`} />
-              <span className={`absolute right-0 top-1/2 -translate-y-1/2 h-0.5 w-1.5 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-ink"}`} />
+              <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
+              <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0.5 h-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
+              <span className={`absolute left-0 top-1/2 -translate-y-1/2 h-0.5 w-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
+              <span className={`absolute right-0 top-1/2 -translate-y-1/2 h-0.5 w-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
             </div>
           </motion.div>
-
-          {/* Inner Laser Dot */}
-          <motion.div
-            style={{
-              translateX: cursorX,
-              translateY: cursorY,
-            }}
-            className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full pointer-events-none z-[10000] bg-accent shadow-[0_0_6px_#FF4D1C]"
-            animate={{
-              scale: clicked ? 0.5 : hovered ? 1.5 : 1,
-            }}
-            transition={{ type: "spring", stiffness: 400, damping: 15 }}
-          />
         </div>
       )}
     </>
