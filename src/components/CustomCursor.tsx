@@ -9,40 +9,34 @@ export default function CustomCursor() {
   const [clicked, setClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
+  // Instant dot position (no spring)
+  const dotX = useMotionValue(-100);
+  const dotY = useMotionValue(-100);
 
-  // Smooth trailing spring settings
-  const springConfig = { damping: 30, stiffness: 220, mass: 0.6 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  // Lagging ring position (spring)
+  const ringConfig = { damping: 28, stiffness: 180, mass: 0.8 };
+  const ringX = useSpring(dotX, ringConfig);
+  const ringY = useSpring(dotY, ringConfig);
 
   useEffect(() => {
     setMounted(true);
 
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
+      dotX.set(e.clientX);
+      dotY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
-
-    const handleMouseEnter = () => {
-      setIsVisible(true);
-    };
-
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
     const handleMouseDown = () => setClicked(true);
     const handleMouseUp = () => setClicked(false);
 
-    const addHoverListeners = () => {
-      const interactiveElements = document.querySelectorAll(
-        "a, button, [role='button'], input, select, textarea, .cursor-pointer, .group"
+    const updateHoverListeners = () => {
+      const targets = document.querySelectorAll(
+        "a, button, [role='button'], input, select, textarea, label, .cursor-pointer, .group"
       );
-      
-      interactiveElements.forEach((el) => {
+      targets.forEach((el) => {
         el.addEventListener("mouseenter", () => setHovered(true));
         el.addEventListener("mouseleave", () => setHovered(false));
       });
@@ -53,10 +47,9 @@ export default function CustomCursor() {
     document.addEventListener("mouseenter", handleMouseEnter);
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
+    updateHoverListeners();
 
-    addHoverListeners();
-
-    const observer = new MutationObserver(addHoverListeners);
+    const observer = new MutationObserver(updateHoverListeners);
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
@@ -67,7 +60,7 @@ export default function CustomCursor() {
       window.removeEventListener("mouseup", handleMouseUp);
       observer.disconnect();
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [dotX, dotY, isVisible]);
 
   if (!mounted) return null;
 
@@ -75,32 +68,53 @@ export default function CustomCursor() {
     <>
       {isVisible && (
         <div className="hidden lg:block">
-          {/* Gaming HUD Crosshair Trailing Ring */}
+
+          {/* Outer trailing ring — large, glowing, lagging behind */}
           <motion.div
-            style={{
-              translateX: cursorXSpring,
-              translateY: cursorYSpring,
-            }}
-            className="fixed top-0 left-0 w-7 h-7 -ml-3.5 -mt-3.5 pointer-events-none z-[9999] flex items-center justify-center"
+            style={{ translateX: ringX, translateY: ringY }}
+            className="fixed top-0 left-0 pointer-events-none z-[9998]"
             animate={{
-              scale: clicked ? 0.75 : hovered ? 1.5 : 1,
-              rotate: hovered ? 90 : 0,
+              width: hovered ? 56 : clicked ? 28 : 38,
+              height: hovered ? 56 : clicked ? 28 : 38,
+              marginLeft: hovered ? -28 : clicked ? -14 : -19,
+              marginTop: hovered ? -28 : clicked ? -14 : -19,
+              opacity: 1,
             }}
-            transition={{ type: "spring", stiffness: 350, damping: 22 }}
+            transition={{ type: "spring", stiffness: 260, damping: 22 }}
           >
-            {/* The outer ring with glowing gaming HUD theme */}
-            <div className={`w-full h-full rounded-full border-1.5 relative transition-all duration-300 ${
-              hovered 
-                ? "border-accent bg-accent/5 shadow-[0_0_12px_rgba(255,77,28,0.6)]" 
-                : "border-accent/60 bg-transparent shadow-[0_0_6px_rgba(255,77,28,0.2)]"
-            }`}>
-              {/* Tactical Crosshair Tick Marks */}
-              <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
-              <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0.5 h-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
-              <span className={`absolute left-0 top-1/2 -translate-y-1/2 h-0.5 w-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
-              <span className={`absolute right-0 top-1/2 -translate-y-1/2 h-0.5 w-1 transition-colors duration-300 ${hovered ? "bg-accent" : "bg-accent/70"}`} />
-            </div>
+            <div
+              className="w-full h-full rounded-full"
+              style={{
+                border: "1.5px solid #FF4D1C",
+                boxShadow: hovered
+                  ? "0 0 18px 4px rgba(255,77,28,0.55), inset 0 0 10px rgba(255,77,28,0.15)"
+                  : "0 0 10px 2px rgba(255,77,28,0.35)",
+                background: hovered ? "rgba(255,77,28,0.06)" : "transparent",
+                transition: "box-shadow 0.25s, background 0.25s",
+              }}
+            />
           </motion.div>
+
+          {/* Inner dot — snaps instantly, solid neon */}
+          <motion.div
+            className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full"
+            style={{
+              translateX: dotX,
+              translateY: dotY,
+              backgroundColor: "#FF4D1C",
+              boxShadow: "0 0 8px 2px rgba(255,77,28,0.7)",
+              width: 8,
+              height: 8,
+              marginLeft: -4,
+              marginTop: -4,
+            }}
+            animate={{
+              scale: hovered ? 0 : clicked ? 1.8 : 1,
+              opacity: hovered ? 0 : 1,
+            }}
+            transition={{ type: "spring", stiffness: 600, damping: 30 }}
+          />
+
         </div>
       )}
     </>

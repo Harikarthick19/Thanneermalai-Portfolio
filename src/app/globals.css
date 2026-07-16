@@ -37,3 +37,10 @@
 .text-stroke {
   -webkit-text-stroke: 1.5px #0a0a0a;
 }
+
+/* Hide default cursor on desktop — replaced by custom gaming cursor */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
