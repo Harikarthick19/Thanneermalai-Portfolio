@@ -27,11 +27,11 @@ const projects = [
     tech: ["PyTorch", "OpenCV", "LSTM"],
   },
   {
-    title: "SVCE Seat Finder",
-    category: "React, Web App, UI/UX",
+    title: "Chat Application",
+    category: "React, TypeScript, Node.js, Socket.IO",
     number: "04",
-    description: "Lightweight application for students to locate available library seating in real-time using interactive floor plans and fast response times.",
-    tech: ["React.js", "Firebase", "Tailwind"],
+    description: "Built a production-ready real-time chat application with React, TypeScript, Node.js, Express, PostgreSQL, and Socket.IO, featuring secure authentication, instant messaging, image & voice sharing, and real-time delivery/read receipts.",
+    tech: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Socket.IO"],
   },
 ];
 

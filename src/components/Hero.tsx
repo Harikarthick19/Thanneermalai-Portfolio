@@ -3,11 +3,8 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
 
 export default function Hero() {
-  const [imageClicked, setImageClicked] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,22 +28,6 @@ export default function Hero() {
         {/* Left Column - Name & CTA */}
         <div className="p-6 md:p-16 flex flex-col justify-center border-b-1.5 md:border-b-0 md:border-r-1.5 border-ink bg-white/50 relative overflow-hidden min-h-[500px] md:min-h-0">
           
-          {/* Background Photo */}
-          <div 
-            onClick={() => setImageClicked(!imageClicked)}
-            className={`absolute inset-0 z-0 pointer-events-auto mix-blend-multiply cursor-pointer transition-all duration-300 ${
-              imageClicked ? "opacity-100" : "opacity-70 blur-sm"
-            }`}
-          >
-            <Image 
-              src="/profile.jpg" 
-              alt="Profile Background" 
-              fill 
-              className="object-cover object-center"
-              priority
-            />
-          </div>
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
