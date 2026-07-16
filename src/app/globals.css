@@ -37,3 +37,10 @@
 .text-stroke {
   -webkit-text-stroke: 1.5px #0a0a0a;
 }
+
+/* Custom gaming cursor styles */
+@media (pointer: fine) {
+  html, body, a, button, select, input, textarea, [role='button'], .cursor-pointer {
+    cursor: none !important;
+  }
+}
